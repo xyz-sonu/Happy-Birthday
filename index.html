@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Little Surprise for Sonalii ♡</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="floating-hearts"></div>
+
+    <!-- SCREEN 1: OPENING -->
+    <section class="screen active" id="intro">
+        <div class="glow glow-one"></div>
+        <div class="glow glow-two"></div>
+
+        <main class="content">
+            <p class="eyebrow">A tiny birthday film · made just for you</p>
+
+            <h1>
+                Hey, <span class="script">Sonalii.</span>
+            </h1>
+
+            <p class="intro-text">
+                Yes, you. The one who makes ordinary moments
+                <br class="desktop-break">
+                feel a little less ordinary. ✨
+            </p>
+
+            <p class="small-text">
+                I may or may not have put an unreasonable amount of effort into this.
+            </p>
+
+            <button class="btn" onclick="startCountdown()">
+                OPEN YOUR LITTLE SURPRISE ↗
+            </button>
+
+            <p class="footer">A little surprise, just for you ♡</p>
+        </main>
+    </section>
+
+    <!-- SCREEN 2: COUNTDOWN -->
+    <section class="screen" id="countdown">
+        <div class="glow glow-one"></div>
+
+        <main class="content">
+            <p class="eyebrow">Something is coming...</p>
+
+            <div class="count-number" id="count-number">3</div>
+
+            <p class="small-text">Ready, birthday girl? 👀</p>
+        </main>
+    </section>
+
+    <!-- SCREEN 3: THE QUESTION -->
+    <section class="screen" id="question">
+        <div class="glow glow-two"></div>
+
+        <main class="content">
+            <div class="question-card">
+
+                <!-- Cute original cartoon face -->
+                <div class="cartoon" aria-label="A cheeky cartoon face">
+                    <div class="hair"></div>
+                    <div class="eye eye-left"></div>
+                    <div class="eye eye-right"></div>
+                    <div class="cheek cheek-left"></div>
+                    <div class="cheek cheek-right"></div>
+                    <div class="smile"></div>
+                </div>
+
+                <p class="eyebrow">A very important question</p>
+
+                <h2>
+                    Do you want to see something
+                    <span class="script">interesting?</span> 👀
+                </h2>
+
+                <div class="button-row">
+                    <button class="btn" onclick="showPhotos()">
+                        YES, SHOW ME 💗
+                    </button>
+
+                    <button class="btn btn-secondary" onclick="sayNo()">
+                        NO 🙄
+                    </button>
+                </div>
+
+                <p id="no-message" class="small-text" aria-live="polite"></p>
+            </div>
+        </main>
+    </section>
+
+    <!-- SCREEN 4: PHOTO GALLERY -->
+    <section class="screen" id="photos">
+        <div class="glow glow-one"></div>
+
+        <main class="content gallery-content">
+            <p class="eyebrow">The main character gallery</p>
+
+            <h2>
+                A few little <span class="script">favourites.</span>
+            </h2>
+
+            <p>
+                Every main character deserves her own little gallery. ♡
+            </p>
+
+            <div class="photo-grid">
+
+                <div class="photo-frame">
+                    <img id="photo1" src="images/photo1.jpeg"
+                         alt="Sonalii's first photo"
+                         onerror="this.src='https://placehold.co/400x450/ffe0eb/b43b61?text=Add+Photo+1'">
+
+                    <p>Certified cutie ♡</p>
+
+                    <label class="photo-upload">
+                        Change photo
+                        <input type="file" accept="image/*"
+                               onchange="loadPhoto(event, 1)">
+                    </label>
+                </div>
+
+                <div class="photo-frame">
+                    <img id="photo2" src="images/photo2.jpeg"
+                         alt="Sonalii's second photo"
+                         onerror="this.src='https://placehold.co/400x450/f8c8d8/9d3657?text=Add+Photo+2'">
+
+                    <p>Main character energy</p>
+
+                    <label class="photo-upload">
+                        Change photo
+                        <input type="file" accept="image/*"
+                               onchange="loadPhoto(event, 2)">
+                    </label>
+                </div>
+
+                <div class="photo-frame">
+                    <img id="photo3" src="images/photo3.jpeg"
+                         alt="Sonalii's third photo"
+                         onerror="this.src='https://placehold.co/400x450/f6d8e2/b43b61?text=Add+Photo+3'">
+
+                    <p>No notes, just wow ✨</p>
+
+                    <label class="photo-upload">
+                        Change photo
+                        <input type="file" accept="image/*"
+                               onchange="loadPhoto(event, 3)">
+                    </label>
+                </div>
+
+            </div>
+
+            <p class="small-text">
+                Choose a photo on your device if you want to change a frame.
+            </p>
+
+            <button class="btn" onclick="showLetter()">
+                OKAY, ONE MORE THING 💌
+            </button>
+        </main>
+    </section>
+
+    <!-- SCREEN 5: THE BIG MESSAGE -->
+    <section class="screen" id="letter">
+        <div class="glow glow-two"></div>
+
+        <main class="content letter-content">
+            <p class="eyebrow">A message, just for you</p>
+
+            <h2>
+                Happy Birthday,
+                <span class="script">Sonalii.</span>
+            </h2>
+
+            <article class="letter-card" id="letter-card">
+                <!-- JavaScript places the message here -->
+            </article>
+
+            <button class="btn" onclick="showFinal()">
+                ONE LAST THING ✨
+            </button>
+        </main>
+    </section>
+
+    <!-- SCREEN 6: THE FINALE -->
+    <section class="screen" id="finale">
+        <div class="glow glow-one"></div>
+        <div class="glow glow-two"></div>
+
+        <main class="content">
+            <div class="birthday-cake">🎂</div>
+
+            <p class="eyebrow">End scene · Your day, your rules</p>
+
+            <h1>
+                Stay <span class="script">wonderful.</span>
+            </h1>
+
+            <p>
+                Anyway… don't let all this attention get to your head. 😌
+                <br>
+                You still owe me some good conversations.
+            </p>
+
+            <p class="final-wish">
+                Happy Birthday, you little menace. ♡
+            </p>
+
+            <button class="btn btn-secondary" onclick="restart()">
+                WATCH AGAIN ↺
+            </button>
+
+            <p class="footer">
+                Made with a little too much effort and absolutely no chill.
+            </p>
+        </main>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
